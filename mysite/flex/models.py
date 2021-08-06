@@ -16,6 +16,8 @@ class FlexPage(Page):
     content = StreamField(
         [
             ("title_and_text",blocks.TitleAndTextBlock(classname='text_and_title')),
+            ("full_richtext",blocks.RichTextBlock()),
+            ("simple_richtext",blocks.SimpleTextBlock()),
 
         ],
         null=True,
