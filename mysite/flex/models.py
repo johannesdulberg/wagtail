@@ -18,6 +18,9 @@ class FlexPage(Page):
             ("title_and_text",blocks.TitleAndTextBlock(classname='text_and_title')),
             ("full_richtext",blocks.RichTextBlock()),
             ("simple_richtext",blocks.SimpleTextBlock()),
+            ("NAVABR",blocks.NAVBAR()),
+            ("MASTERHEAD",blocks.MASTERHEAD()),
+            ("ABOUT",blocks.ABOUT()),
 
         ],
         null=True,
