@@ -170,6 +170,7 @@ class CardPicture(blocks.StructBlock):
     btn = blocks.TextBlock(required=False)
     image = ImageChooserBlock(required=True)
     position = blocks.TextBlock(required=False)
+    rounded=BooleanBlock(required=False)
 
     class Meta:
         template = "steams/CardPicture.html"
@@ -200,15 +201,17 @@ class ThreeImagesCallToAction(blocks.StructBlock):
 
 class CardBlock(blocks.StructBlock):
     """Cards with image and text and buttons"""
-    title = blocks.CharBlock(required=True)
+    title = blocks.CharBlock(required=False)
     rounded=BooleanBlock(required=False)
     CardOptic=BooleanBlock(required=False)
+    AbstandZwischenBildern=BooleanBlock(required=False)
+    AbstandSeiten = blocks.CharBlock(required=False,help_text="Default=0")
     cards = blocks.ListBlock(
         blocks.StructBlock([
             ("image",ImageChooserBlock(required=False)),
-            ("title",blocks.CharBlock(required=True)),
+            ("title",blocks.CharBlock(required=False)),
             ("icon",blocks.CharBlock(required=False)),
-            ("text",blocks.TextBlock(required=True)),
+            ("text",blocks.TextBlock(required=False)),
             ("button_page", blocks.PageChooserBlock(required=False)),
             ("button_url", blocks.URLBlock(required=False, help_text="If the button page above is selected, that will be used first.")),
         ])
@@ -218,3 +221,21 @@ class CardBlock(blocks.StructBlock):
         template = "steams/CardBlock.html"
         icon="edit"
         label ="CardBlock"
+
+
+class SlideShow(blocks.StructBlock):
+    image1 = ImageChooserBlock(required=True)
+    image2 = ImageChooserBlock(required=True)
+    image3 = ImageChooserBlock(required=True)
+    title1 = blocks.CharBlock(required=False)
+    title2 = blocks.CharBlock(required=False)
+    title3 = blocks.CharBlock(required=False)
+    info1 = blocks.TextBlock(required=False)
+    info2 = blocks.TextBlock(required=False)
+    info3 = blocks.TextBlock(required=False)
+
+
+    class Meta:
+        template = "steams/SlideShow.html"
+        icon="edit"
+        label ="SlideShow"

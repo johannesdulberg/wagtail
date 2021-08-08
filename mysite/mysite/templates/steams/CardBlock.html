@@ -1,18 +1,38 @@
 {% load wagtailimages_tags %}
 
-<div class="container mb-sm-5 mt-sm-5">
+<div class="container-fluid">
+    <!--Abstand an den Seiten-->
+    {% if self.title%}
+        <div class="container px-{{self.AbstandSeiten}}">
+    {%else%} 
+        <div class="container">
+    {% endif%}
+
+    <!--Überschrift-->
+    {% if self.title%}
     <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
+    {% endif%}
     <div class="card-group md">
+        
         {% for card in self.cards %}
             {% image card.image fill-500x500 as img %}
-
+            <!-- Optic einer Bootstrap Karte-->
             {%if self.CardOptic %}
-                <div class="card mx-3 ">
+                <!-- Abstand zwischen den Bildern-->
+                {%if self.AbstandZwischenBildern %}
+                    <div class="card mx-3 ">
+                {%else%} 
+                    <div class="card">
+                {%endif%}
             {%else%} 
-                <div class="card mx-3 border-0">
+                {%if self.AbstandZwischenBildern %}
+                    <div class="card mx-3 border-0">
+                {%else%} 
+                    <div class="card border-0">
+                {%endif%}
             {%endif%}
 
-            
+                <!-- Rund oder viereckige Bilder-->
                 {%if self.rounded%}
                 <div style="padding:5vw;">
                 <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top rounded"/>
@@ -20,9 +40,14 @@
                 {%else%} 
                 <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top"/>
                 {%endif%}
-
+                <!-- Icon-->
+                {%if card.icon %}
                 <div class="mb-2 text-center"><i class="bi-{{card.icon}} fs-1 text-primary"></i></div>
-                <div class="card-body text-center">
+                {%endif %}
+                <!-- Hat die Card einen Title dann wird der Kartentext mit Button hinzugefügt-->
+                {%if card.title %}
+                <div class="card-body text-center align-items-center row">
+                    <div>
                     <h5 class="card-title text-center">{{ card.title }}</h5>
                     <p class="card-text text-center">{{ card.text }}</p>
                     {% if card.button_page %}
@@ -34,8 +59,11 @@
                             Learn More
                         </a>
                     {% endif %}
+                    </div>
                 </div>
+                {%endif%}
             </div>
         {% endfor %}
+    </div>
     </div>
 </div>
