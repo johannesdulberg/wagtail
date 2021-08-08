@@ -25,6 +25,10 @@ class FlexPage(Page):
             ("SERVICES",blocks.SERVICES()),
             ("GALLERIE",blocks.GALLERIE()),
             ("CONTACT",blocks.CONTACT()),
+            ("NavbarCentered",blocks.NavbarCentered()),
+            ("NavbarCentered",blocks.VideoHeader()),
+            ("NavbarCentered",blocks.CardPicture()),
+            ("ThreeImagesCallToAction",blocks.ThreeImagesCallToAction()),
 
         ],
         null=True,

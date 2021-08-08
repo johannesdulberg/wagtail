@@ -45,11 +45,21 @@ class NAVBAR(blocks.StructBlock):
         template = "steams/NAVBAR.html"
         icon="edit"
         label ="NAVBAR"
+class NavbarCentered(blocks.StructBlock):
+    title = blocks.TextBlock(required=True)
+    site1 = blocks.TextBlock(required=True)
+    site2 = blocks.TextBlock(required=True)
+    site3 = blocks.TextBlock(required=True)
+    site4 = blocks.TextBlock(required=True)
 
+    class Meta:
+        template = "steams/NavbarCentered.html"
+        icon="edit"
+        label ="NavbarCentered"
 class MASTERHEAD(blocks.StructBlock):
     HEADER = blocks.TextBlock(required=True)
     SUBTITLE = blocks.TextBlock(required=True)
-    BUTTON = blocks.TextBlock(required=True)
+    BUTTON = blocks.TextBlock(required=False)
     MasterImage = ImageChooserBlock(required=True)
 
     class Meta:
@@ -140,3 +150,47 @@ class CONTACT(blocks.StructBlock):
         template = "steams/CONTACT.html"
         icon="edit"
         label ="CONTACT"
+
+class VideoHeader(blocks.StructBlock):
+    title = blocks.CharBlock(required=True)
+    subtitle = blocks.TextBlock(required=True)
+    BUTTON= blocks.TextBlock(required=False)
+
+    class Meta:
+        template = "steams/VideoHeader.html"
+        icon="edit"
+        label ="VideoHeader"
+
+class CardPicture(blocks.StructBlock):
+    title = blocks.TextBlock(required=True)
+    subtitle = blocks.TextBlock(required=True)
+    btn = blocks.TextBlock(required=False)
+    image = ImageChooserBlock(required=True)
+    position = blocks.TextBlock(required=False)
+
+    class Meta:
+        template = "steams/CardPicture.html"
+        icon="edit"
+        label ="CardPicture"
+
+class ThreeImagesCallToAction(blocks.StructBlock):
+    title1 = blocks.TextBlock(required=True)
+    title2 = blocks.TextBlock(required=True)
+    title3 = blocks.TextBlock(required=True)
+    subtitle1 = blocks.TextBlock(required=True)
+    subtitle2 = blocks.TextBlock(required=True)
+    subtitle3 = blocks.TextBlock(required=True)
+    info1 = blocks.TextBlock(required=True)
+    info2 = blocks.TextBlock(required=True)
+    info3 = blocks.TextBlock(required=True)
+    btn1 = blocks.TextBlock(required=False)
+    btn2 = blocks.TextBlock(required=False)
+    btn3 = blocks.TextBlock(required=False)
+    image1 = ImageChooserBlock(required=True)
+    image2 = ImageChooserBlock(required=True)
+    image3 = ImageChooserBlock(required=True)
+
+    class Meta:
+        template = "steams/ThreeImagesCallToAction.html"
+        icon="edit"
+        label ="ThreeImagesCallToAction"

@@ -1,0 +1,38 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%image self.image1 original as img1 %}
+{%image self.image2 original as img2 %}
+{%image self.image3 original as img3 %}
+
+<section>
+    <div class="row g-0">
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img1.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <p>Marathon</p>
+            </div>
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img2.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <p>Springen</p>
+            </div>
+
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img3.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <p>Schwimmen</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
