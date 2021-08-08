@@ -11217,6 +11217,7 @@ textarea.form-control-lg {
     text-align: center !important;
   }
 }
+
 @media (min-width: 1200px) {
   .fs-1 {
     font-size: 2.5rem !important;
@@ -11275,6 +11276,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
 html {
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
@@ -11379,11 +11382,11 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-size: cover !important; 
+
 }
 header.masthead h1, header.masthead .h1 {
   font-size: 2.25rem;

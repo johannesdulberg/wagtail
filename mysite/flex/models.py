@@ -4,6 +4,7 @@ from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel,StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
+from wagtail.images.blocks import ImageChooserBlock
 from steams import blocks
 
 
@@ -21,6 +22,9 @@ class FlexPage(Page):
             ("NAVABR",blocks.NAVBAR()),
             ("MASTERHEAD",blocks.MASTERHEAD()),
             ("ABOUT",blocks.ABOUT()),
+            ("SERVICES",blocks.SERVICES()),
+            ("GALLERIE",blocks.GALLERIE()),
+            ("CONTACT",blocks.CONTACT()),
 
         ],
         null=True,
