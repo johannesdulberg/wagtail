@@ -1,0 +1,41 @@
+{% load wagtailimages_tags %}
+
+<div class="container mb-sm-5 mt-sm-5">
+    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
+    <div class="card-group md">
+        {% for card in self.cards %}
+            {% image card.image fill-500x500 as img %}
+
+            {%if self.CardOptic %}
+                <div class="card mx-3 ">
+            {%else%} 
+                <div class="card mx-3 border-0">
+            {%endif%}
+
+            
+                {%if self.rounded%}
+                <div style="padding:5vw;">
+                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top rounded"/>
+                </div>
+                {%else%} 
+                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top"/>
+                {%endif%}
+
+                <div class="mb-2 text-center"><i class="bi-{{card.icon}} fs-1 text-primary"></i></div>
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">{{ card.title }}</h5>
+                    <p class="card-text text-center">{{ card.text }}</p>
+                    {% if card.button_page %}
+                        <a href="{{ card.button_page.url }}" class="btn btn-primary">
+                            Learn More
+                        </a>
+                    {% elif card.button_url %}
+                        <a href="{{ card.button_url }}" class="btn btn-primary">
+                            Learn More
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

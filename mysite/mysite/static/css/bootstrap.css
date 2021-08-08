@@ -4559,7 +4559,9 @@ textarea.form-control-lg {
 .card-group > .card {
   margin-bottom: 0.75rem;
 }
-@media (min-width: 576px) {
+
+/* CHANGED FROM SM TO MD*/
+@media (min-width: 768px) {
   .card-group {
     display: flex;
     flex-flow: row wrap;
@@ -11486,7 +11488,7 @@ header.masthead h1, header.masthead .h1 {
   transition: all 1s;
 } 
 .ThreeImagesCallToActionSubContainer:hover>.ThreeImagesCallToActionTextContainer{
-  transform: translateY(-400%);
+  transform: translateY(-30vh);
   transition: all 1s;
 } 
 
@@ -11498,4 +11500,22 @@ header.masthead h1, header.masthead .h1 {
   justify-content: center;
   align-items: center;
   transition: 1s;
+  display: flex;
+  flex-direction: column;
+}
+.ThreeImagesCallToActionTextContainerInfo{
+  display: none;
+}
+.ThreeImagesCallToActionSubContainer:hover .ThreeImagesCallToActionTextContainerInfo{
+  display: inline;
+} 
+.ThreeImagesCallToActionTextContainer>p{
+  text-align: center;
+}
+
+/* CardPicture */
+.rounded{
+  border-radius: 50% !important;
+  border: 1vw solid gray; 
+  background-color: gray;
 }

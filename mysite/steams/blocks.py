@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import SET_NULL
+from wagtail.core.blocks.field_block import BooleanBlock
 
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
@@ -7,6 +8,8 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel,PageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
+from wagtail.core.blocks import URLBlock,PageChooserBlock
+
 
 class TitleAndTextBlock(blocks.StructBlock):
     title = blocks.CharBlock(required=True)
@@ -194,3 +197,24 @@ class ThreeImagesCallToAction(blocks.StructBlock):
         template = "steams/ThreeImagesCallToAction.html"
         icon="edit"
         label ="ThreeImagesCallToAction"
+
+class CardBlock(blocks.StructBlock):
+    """Cards with image and text and buttons"""
+    title = blocks.CharBlock(required=True)
+    rounded=BooleanBlock(required=False)
+    CardOptic=BooleanBlock(required=False)
+    cards = blocks.ListBlock(
+        blocks.StructBlock([
+            ("image",ImageChooserBlock(required=False)),
+            ("title",blocks.CharBlock(required=True)),
+            ("icon",blocks.CharBlock(required=False)),
+            ("text",blocks.TextBlock(required=True)),
+            ("button_page", blocks.PageChooserBlock(required=False)),
+            ("button_url", blocks.URLBlock(required=False, help_text="If the button page above is selected, that will be used first.")),
+        ])
+    )
+
+    class Meta:
+        template = "steams/CardBlock.html"
+        icon="edit"
+        label ="CardBlock"

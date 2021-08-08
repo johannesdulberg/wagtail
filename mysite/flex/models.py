@@ -29,7 +29,7 @@ class FlexPage(Page):
             ("NavbarCentered",blocks.VideoHeader()),
             ("NavbarCentered",blocks.CardPicture()),
             ("ThreeImagesCallToAction",blocks.ThreeImagesCallToAction()),
-
+            ("CardBlock",blocks.CardBlock())
         ],
         null=True,
         blank=True
